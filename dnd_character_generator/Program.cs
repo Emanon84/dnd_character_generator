@@ -8,29 +8,6 @@ namespace dnd_character_generator
         {
 
 
-            //Character Eynar = new Character("Eynar");
-
-
-            //Console.WriteLine("Namn: {0}, Klass: {1}, Ras: {2}", Eynar.CharName, Eynar.CharClass, Eynar.CharRace);
-
-            //Console.WriteLine("{0} vill inte vara {1}, rullar om klass", Eynar.CharName, Eynar.CharClass);
-
-            //string currentClass = Eynar.CharClass;
-            //do
-            //{
-            //    Console.WriteLine("rullar ny klass");
-            //    Eynar.RollClass();
-            //    Console.WriteLine(Eynar.CharClass);
-            //}
-            //while (Eynar.CharClass == currentClass) ;
-
-            
-            //Console.WriteLine("Namn: {0}, Klass: {1}, Ras: {2}", Eynar.CharName, Eynar.CharClass, Eynar.CharRace);
-
-            //Character Jovial = new Character("Jovial");
-
-            //    Console.WriteLine("Namn: {0}, Klass: {1}, Ras: {2}", Jovial.CharName, Jovial.CharClass, Jovial.CharRace);
-
             Console.WriteLine("Vad vill du att din karaktär ska heta?");
             string karaktar = Console.ReadLine();
             Console.WriteLine("Genererar karaktär...");
@@ -41,7 +18,7 @@ namespace dnd_character_generator
             //Console.WriteLine("Namn: {0}, Klass: {1}, Ras: {2}", Char1.CharName, Char1.CharClass, Char1.CharRace);
             //Console.WriteLine(" ");
             int choice = 100;
-            while(choice != 9)
+            do
             {
                 Console.WriteLine("---------------------");
                 Console.WriteLine("Namn: {0}, Klass: {1}, Ras: {2}", Char1.CharName, Char1.CharClass, Char1.CharRace);
@@ -53,35 +30,39 @@ namespace dnd_character_generator
                 Console.WriteLine("---------------------");
 
                 string input = Console.ReadLine();
-                if(!int.TryParse(input, out choice))
-                    {
+                if (!int.TryParse(input, out choice))
+                {
 
-                    Console.WriteLine(choice);
+                    Console.Clear();
+                    //Console.WriteLine(choice);
                     Console.WriteLine("Ogiltigt val, försök igen");
+                   
 
                 }
-                else if(choice > 3 || choice < 1)
+                else if (choice > 3 || choice < 1)
                 {
+                    Console.Clear();
                     Console.WriteLine("Du måste väljar 1, 2 eller 3");
                     choice = 100;
                 }
-                else if(choice == 1)
-                {
+                else if (choice == 1)
+                {                  
                     Console.WriteLine("Karaktären godkänd! Avslutar programmet");
-                    choice = 9;
                 }
-                else if(choice == 2)
+                else if (choice == 2)
                 {
+                    Console.Clear();
                     Console.WriteLine("Genererar ny klass...");
                     Char1.RollClass();
                 }
-                else if(choice == 3)
+                else if (choice == 3)
                 {
+                    Console.Clear();
                     Console.WriteLine("Generear ny ras");
                     Char1.RollRace();
                 }
 
-            }
+            } while (choice != 1);
 
 
         }
