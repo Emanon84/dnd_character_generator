@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,22 +11,59 @@ namespace dnd_character_generator
     internal class Character
     {
 
-        public string CharName = string.Empty;
-        public string CharClass = string.Empty;
-        public string CharRace = string.Empty;
+        private string charName = string.Empty;
+        private string charClass = string.Empty;
+        private string charRace = string.Empty;
+
+        public string CharName {
+            get
+            {
+                return charName;
+            }
+            set
+            {
+                charName = value;
+            } 
+        }
+
+        public string CharClass
+        {
+            get
+            {
+                return charClass;
+            }
+            set
+            {
+                charClass = value;
+            }
+        }
+
+        public string CharRace
+        {
+            get
+            {
+                return charRace;
+            }
+            set
+            {
+                charRace = value;
+            }
+        }
+
+
 
         public Character()
         {
-            this.CharName = "Ugluk";
+            this.charName = "Ugluk";
             RollClass();
             RollRace();
 
         }
-        public Character(string CharName)
+        public Character(string charName)
         {
-            this.CharName = CharName;
+            this.charName = charName;
 
-            //this.CharClass = RollClass2();
+            //this.charClass = RollClass2();
             RollClass();
             RollRace();
         }
@@ -36,7 +74,7 @@ namespace dnd_character_generator
         {
 
             int klass;
-            string CurrentClass = this.CharClass;
+            string CurrentClass = this.charClass;
 
             do
             {
@@ -46,51 +84,51 @@ namespace dnd_character_generator
                 switch (klass)
                 {
                     case 0:
-                        CharClass = "Barbarian";
+                        charClass = "Barbarian";
                         break;
                     case 1:
-                        CharClass = "Bard";
+                        charClass = "Bard";
                         break;
                     case 2:
-                        CharClass = "Cleric";
+                        charClass = "Cleric";
                         break;
                     case 3:
-                        CharClass = "Druid";
+                        charClass = "Druid";
                         break;
                     case 4:
-                        CharClass = "Fighter";
+                        charClass = "Fighter";
                         break;
                     case 5:
-                        CharClass = "Monk";
+                        charClass = "Monk";
                         break;
                     case 6:
-                        CharClass = "Paladin";
+                        charClass = "Paladin";
                         break;
                     case 7:
-                        CharClass = "Ranger";
+                        charClass = "Ranger";
                         break;
                     case 8:
-                        CharClass = "Rogue";
+                        charClass = "Rogue";
                         break;
                     case 9:
-                        CharClass = "Sorcerer";
+                        charClass = "Sorcerer";
                         break;
                     case 10:
-                        CharClass = "Warlock";
+                        charClass = "Warlock";
                         break;
                     case 11:
-                        CharClass = "Wizard";
+                        charClass = "Wizard";
                         break;
 
                 }
-            } while (CurrentClass == this.CharClass);
+            } while (CurrentClass == this.charClass);
         }
 
 
         public void RollRace()
         {
             int ras;
-            string CurrentRace = this.CharRace;
+            string CurrentRace = this.charRace;
 
             do
             {
@@ -101,35 +139,35 @@ namespace dnd_character_generator
                 switch (ras)
             {
                 case 0:
-                    CharRace = "Dragonborn";
+                    charRace = "Dragonborn";
                     break;
                 case 1:
-                    CharRace = "Dwarf";
+                    charRace = "Dwarf";
                     break;
 
                 case 2:
-                    CharRace = "Elf";
+                    charRace = "Elf";
                     break;
                 case 3:
-                    CharRace = "Gnome";
+                    charRace = "Gnome";
                     break;
                 case 4:
-                    CharRace = "Half-Elf";
+                    charRace = "Half-Elf";
                     break;
                 case 5:
-                    CharRace = "Halfling";
+                    charRace = "Halfling";
                     break;
                 case 6:
-                    CharRace = "Half-Orc";
+                    charRace = "Half-Orc";
                     break;
                 case 7:
-                    CharRace = "Human";
+                    charRace = "Human";
                     break;
                 case 8:
-                    CharRace = "Tiefling";
+                    charRace = "Tiefling";
                     break;
             }
-            }while(CurrentRace == this.CharRace);
+            }while(CurrentRace == this.charRace);
         }
 
 
